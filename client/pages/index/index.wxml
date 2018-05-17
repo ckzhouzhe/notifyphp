@@ -1,0 +1,121 @@
+<!--index.wxml-->
+<view class="container ">
+    <!-- 轮播图 -->
+    <swiper autoplay="true" class="banner" indicator-dots="true">
+        <block wx:if="{{banners.length > 0}}">
+            <block indicator-dots="true" wx:for="{{banners}}" wx:key="{{item.id}}">
+                <swiper-item>
+                    <image class="slide-image" src="{{item.imgs}}">
+                    </image>
+                </swiper-item>
+            </block>
+        </block>
+        <block wx:else="">
+            <block indicator-dots="true" wx:for="{{bannersX}}" wx:key="{{item.id}}">
+                <swiper-item>
+                    <image class="slide-image" src="{{item[1]}}">
+                    </image>
+                </swiper-item>
+            </block>
+        </block>
+    </swiper>
+    <!-- 首页菜单 -->
+    <view class="menu">
+        <navigator class="item" url="/pages/goods/list/list">
+            <image class="icon" src="/images/home-category.png">
+            </image>
+            <text class="name">
+                全部计划
+            </text>
+        </navigator>
+        <navigator class="item" url="/pages/member/order/list/list">
+            <image class="icon" src="/images/home-order.png">
+            </image>
+            <text class="name">
+                活跃用户
+            </text>
+        </navigator>
+        <navigator class="item" url="/pages/member/favorite/favorite">
+            <image class="icon" src="/images/home-favorite.png">
+            </image>
+            <text class="name">
+                收藏
+            </text>
+        </navigator>
+        <navigator class="item" url="/pages/member/level/level">
+            <image class="icon" src="/images/home-cart.png">
+            </image>
+            <text class="name">
+                优惠
+            </text>
+        </navigator>
+    </view>
+    <!-- 公告栏 -->
+    <view class="notice menu_container" wx:if="{{notices.length > 0}}">
+        <image class="icon" src="/images/icon_notice.png">
+        </image>
+        <swiper autoplay="true" circular="true" class="notice-list" interval="2000" vertical="true">
+            <block wx:for="{{notices}}" wx:key="item.id">
+                <swiper-item>
+                    <view bindtap="bindOnNotice" class="swiper_item" data-id="{{item.id}}">
+                        {{item.title}}
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <!-- 精品推荐  -->
+    <view class="goods-section" style="width:95%">
+        <view class="h">
+            热门读书计划
+        </view>
+        <view class="b">
+            <block wx:for-item="mItem" wx:for-items="{{materialList}}" wx:key="mItem">
+                <view bindtap="tapMaterialItem" class="material_item" data-material="{{mItem.title}}" id="{{mItem.id}}">
+                    <block wx:if="{{mItem.flower_num != 0}}">
+                        <view class="flower-icon">
+                            <text class="flower-num">
+                                {{index+1}}
+                            </text>
+                        </view>
+                    </block>
+                    <image class="cs-img" data-src="{{mItem.thumb}}" src="{{mItem.thumb}}">
+                    </image>
+                    <view class="content_box">
+                        <view class="cs-text-title">
+                            {{mItem.title}}
+                        </view>
+                        <progress class="cs-progress" color="#1ECFA7" percent="100" stroke-width="6">
+                        </progress>
+                        <text class="cs-text">
+                            参与人数：{{mItem.joinnum}}
+                        </text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!-- 新品上市  -->
+    <view class="goods-section">
+        <view class="h">
+            近期打卡阅读用户
+        </view>
+        <view class="b">
+            <navigator class="item" url="/pages/goods/detail/detail?id={{item.id}}" wx:for="{{materialList}}" wx:key="{{item.id}}">
+                <image class="thumb" src="{{item.default_photo.thumb}}">
+                </image>
+                <view class="name">
+                    {{item.name}}
+                </view>
+                <view class="price">
+                    ￥{{item.current_price}}
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view bindtap="tapShowFlowerRank" class="fixed-flower-rank">
+        <text>
+            榜单
+        </text>
+    </view>
+</view>

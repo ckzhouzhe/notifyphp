@@ -1,0 +1,52 @@
+{
+	"client": "./client",
+	"svr": "./server",
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx3d891dc322b247a0",
+	"projectname": "%E9%80%9A%E7%9F%A5",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/index/detail",
+					"pathName": "pages/index/detail",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "reading",
+					"pathName": "pages/reading/reading",
+					"query": "cs_id=1"
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": "cs_id=1"
+				}
+			]
+		}
+	}
+}

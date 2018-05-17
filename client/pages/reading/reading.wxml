@@ -1,0 +1,74 @@
+<!--logs.wxml-->
+<view class="container reading_container">
+    <swiper class="swiper_container">
+        <!-- <block wx:for-items="{{readingInfo}}" wx:key="item"> -->
+        <swiper-item class="readingItem">
+            <view class="readingItem-img" style="height: 150px;overflow: scroll;">
+                <textarea auto-height=""  bindblur="bindTextAreaBlur" placeholder="填写书评、感悟">
+                </textarea>
+            </view>
+            <view class="readingItem-content">
+                <view class="item-index">
+                    录音（可选）
+                </view>
+                <view class="readingItem-audio-content">
+                    <image bindtap="tapRePlayUserAudio" class="read-audio-icon" id="replay-1" src="images/btn_read_videoPlay.png">
+                        <audio id="partaudio-1" src="{{audio_url}}">
+                        </audio>
+                    </image>
+                    <view class="read-audio-info">
+                        <text class="ri-en_content">
+                            
+                        </text>
+                        <text class="ri-content">
+                            
+                        </text>
+                    </view>
+                </view>
+                <!-- 底部 控制区域 -->
+                <view class="read-audio-control">
+                    <progress class="read-audio-progress" color="#1ECFA7" percent="{{currentProgress}}" stroke-width="6">
+                    </progress>
+                    <text class="read-audio-duration">
+                        {{lefttime}}'
+                    </text>
+                    <image bindtap="tapRePlayUserAudio" class="audio-listen" data-reading_item="1" id="replay-1" src="images/btn_read_listenS.png">
+                    </image>
+                    <block wx:if="{{recording == true}}">
+                        <image bindtap="tapCompleteUserAudio" class="audio-record" data-reading_item="1" id="record-1" src="images/btn_read_record_stop.png">
+                        </image>
+                    </block>
+                    <block wx:if="{{recording == false}}">
+                        <image bindtap="tapRecordUserAudio" class="audio-record" data-reading_item="1" id="record-1" src="images/btn_read_record.png">
+                        </image>
+                    </block>
+                </view>
+            </view>
+            <view>
+                <block>
+                    <text class="issues issues-label">
+                        选择图片（可选）
+                    </text>
+                    <view class="issues issues-img-panel {{(showError&&uploading)?'error':''}}">
+                        <view class="issues issues-photo-item" wx:if="{{uploading}}">
+                            <image class="remind-img" src="/images/loading.gif">
+                            </image>
+                        </view>
+                        <view bindtap="choosePhoto" class="issues issues-photo-item add-photo" wx:else="">
+                        </view>
+                        <view class="issues issues-photo-item" wx:for="{{imgs}}" wx:key="*this">
+                            <image bindtap="previewPhoto" data-index="{{index}}" mode="aspectFill" src="{{item}}">
+                            </image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </swiper-item>
+        <!-- </block> -->
+    </swiper>
+    <view bindtap="tapSubmitReadingResult" class="fixed_submit_btn">
+        <text style='line-height:10rpx;'>
+            完成！提交打卡~
+        </text>
+    </view>
+</view>

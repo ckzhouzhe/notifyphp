@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- 用户登录测试 -->
+    <!-- <view class="userinfo" >
+        <image
+            class="userinfo-avatar"
+            src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}"
+            background-size="cover"
+        ></image>
+        <view>
+            <text class="userinfo-nickname">{{logged ? userInfo.nickName : '点击测试登录接口'}}</text>
+            <text class="userinfo-nickname" wx:if="{{logged}}">{{userInfo.lastLoginTime}}</text>
+        </view>
+    </view> -->
+    <view style="width: 100%;text-align: center;background: #fff;padding: 15px;">
+        <image class="userinfo-avatar" style="width: 150rpx;height: 150rpx" src="{{userInfo.avatarUrl ? userInfo.avatarUrl : './user-unlogin.png'}}"
+            background-size="cover"></image>
+        <view>
+            <!-- <text class="userinfo-name" style="font-weight: 400;color: #000;font-family: Microsoft YaHei ,微软雅黑">{{userInfo.nickName ? '周哲' : '姓名'}}</text> -->
+            <input style="font-weight: 400;color: #000;font-family: Microsoft YaHei ,微软雅黑" placeholder="请输入姓名" bindinput="listenerName" value="周哲" />
+        </view>
+        <view style="color: #ADBDBA;font-family: Microsoft YaHei ,微软雅黑;margin-bottom:10px;">
+            <!-- <text class="userinfo-zhiwu" style="color: #ADBDBA;font-family: Microsoft YaHei ,微软雅黑">{{userInfo.nickName ? '书记员' : '职务'}}</text> -->
+            <input style="color: #ADBDBA;font-family: Microsoft YaHei ,微软雅黑" placeholder="请输入职务" bindinput="listenerZhiwu" value="书记员" />
+        </view>
+        
+        <button bindtap="test" style="border-radius: 50px;background: #399ABC;color: #fff;width: 80%">修改信息</button>
+    </view>
+    <view style="text-align: center;padding: 25px;">
+        
+        <!-- <button style="border-radius: 50px;background: #399ABC;color: #fff;width: 80%">历史会议</button> -->
+        <navigator url="/pages/index/detail" >
+        <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑">28次</view>
+        <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑">历史会议</view>
+        </navigator>
+
+
+    </view>
+
+    
+</view>

@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="container">
+    <view style="background: #fff;padding: 15px;">
+        <view>
+            会议名称：关于xx的会议
+        </view>
+        <view>
+            时间：2018年2月11日 上午 9：00
+        </view>
+        <view>
+            地点：五楼会议室
+        </view>
+    </view>
+    <view style="padding: 25px;background:#F8F9FA;">
+        <block wx:for="abckdfsdf">
+            <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑;vertical-align: middle;line-height: 100rpx;display: flex;justify-content: space-between;border-bottom:1px solid #ccc;">
+                <view style="margin-right: 10px;height:50px;">
+                    <image background-size="cover" class="userinfo-avatar" src="{{userInfo.avatarUrl ? userInfo.avatarUrl : './user-unlogin.png'}}" style="width: 100rpx;height: 100rpx">
+                    </image>
+                </view>
+                周哲
+                <view style="margin-left: 20px;">
+                    <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑;display: inline-block;background: #FF7902;color: #fff;border: 1px solid #CC6006;padding: 0 5px;width: 60px;line-height: 25px">
+                        已读  ✓
+                    </view>
+                    <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑;display: inline-block;background: #ccc;color: #fff;border: 1px solid #CC6006;padding: 0 5px;line-height: 25px" bindtap="makePhoneCall" data-tel='15130977141'>
+                        拨打电话
+                    </view>
+                </view>
+            </view>
+            <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑;vertical-align: middle;line-height: 100rpx;display: flex;justify-content: space-between;border-bottom:1px solid #ccc;">
+                <view style="margin-right: 10px;height:50px;">
+                    <image background-size="cover" class="userinfo-avatar" src="{{userInfo.avatarUrl ? userInfo.avatarUrl : './user-unlogin.png'}}" style="width: 100rpx;height: 100rpx">
+                    </image>
+                </view>
+                周哲
+                <view style="margin-left: 20px;">
+                    <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑;display: inline-block;background: #ccc;color: #fff;border: 1px solid #CC6006;padding: 0 5px;width: 60px;line-height: 25px">
+                        未读  ×
+                    </view>
+                    <view style="color: #4194B1;font-family: Microsoft YaHei ,微软雅黑;display: inline-block;background: #FF7902;color: #fff;border: 1px solid #CC6006;padding: 0 5px;line-height: 25px" bindtap="makePhoneCall" data-tel='15130977141'>
+                        拨打电话
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
